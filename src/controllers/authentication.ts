@@ -24,12 +24,12 @@ export const login = async (req:express.Request,res:express.Response) => {
         {
             return res.sendStatus(403);
         }
-
+//updating the session token
         const salt = random();
         user.authentication.sessionToken =authentication(salt,user._id.toString());
-        
+//save it
         await user.save();
-
+//storing the new session token in cookie dATA
         res.cookie('MUDIT-AUTH',user.authentication.sessionToken,{domain:'localhost', path:'/'});
         return res.status(200).json(user).end();
     }
