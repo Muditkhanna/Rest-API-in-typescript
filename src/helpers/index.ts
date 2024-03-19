@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-//generates randomID function
+//generates random salt
 export const random=()=>crypto.randomBytes(128).toString('base64');
 
 const Secret = 'MUDIT-REST-API'
